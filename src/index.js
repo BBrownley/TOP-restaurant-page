@@ -13,6 +13,9 @@ import home from "./homeContent";
 import menu from "./menuContent";
 import contact from "./contactContent";
 
+// If we're testing the app locally, the path to the images will be slightly different.
+const testingLocally = false;
+
 const mainController = (() => {
 
     loadPage();
@@ -31,7 +34,13 @@ const mainController = (() => {
         
         images = tabNames.map(tabName => {
             const img = new Image();
-            img.src = `../dist/img/${tabName}-img.jpg`
+
+            if (testingLocally) {
+                img.src = `../dist/img/${tabName}-img.jpg`
+            } else {
+                img.src = `./img/home-img.jpg`;
+            }
+            
             return img;
         })
 
@@ -42,7 +51,12 @@ const mainController = (() => {
 
     // Changes the background image based on the `content` being displayed on the page
     const changeBackgroundImage = content => {
-        bodyElement.style.backgroundImage = `url("../dist/img/${content}-img.jpg")`
+        if (testingLocally) {
+            bodyElement.style.backgroundImage = `url("../dist/img/${content}-img.jpg")`
+        } else {
+            bodyElement.style.backgroundImage = `url(".img/${content}-img.jpg")`
+        }
+        
     }
 
     // Clears the "Selected" class from the selected tab
