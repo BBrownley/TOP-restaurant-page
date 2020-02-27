@@ -14,22 +14,41 @@ body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+body::before {
+    content: " ";
+    background-color: rgba(0,0,0,.5);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+}
+
 li {
     list-style-type: none;
 }
 
 #content {
-    background-color: rgb(83, 83, 83);
-    margin-top: 110px;
+    /* background-color: rgb(83, 83, 83); */
+    /* margin-top: 110px; */
     padding: 20px;
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    top: 130px;
+    text-align: center;
+
+    
 }
 
 .header {
-    background-color: #888;
+    /* background-color: #888; */
     height: 110px;
     display: flex;
     justify-content: space-between;
-    align-content: center;
+    align-items: center;
     padding: 20px;
     position: fixed;
     top: 0;
@@ -38,11 +57,14 @@ li {
 }
 
 .header .logo {
-    background-color: cyan;
+    background-color: black;
     align-self: center;
-    font-size: 20px;
+    font-size: 30px;
     padding: 10px;
-    border: 1px solid black;
+    border: 1px solid white;
+    box-shadow: 3px 3px 3px black;
+    text-shadow: 3px 3px 3px black;
+    color: white;
 }
 
 .header .navigation ul {
@@ -53,15 +75,21 @@ li {
 }
 
 .header .navigation ul li {
-    background-color: rgb(59, 111, 255);
+    background-color: black;
+    color: white;
     padding: 20px;
 }
 
 .header .navigation ul li:hover {
-    background-color: rgb(88, 133, 255);
+    background-color: rgb(25, 25, 25);
     cursor: pointer;
 }
 
-.nav-selected {
-    border: 5px solid white;
+.header .navigation ul li.nav-selected {
+    background-color: rgb(50, 50, 50);
+}
+
+.information {
+    color: white;
+    text-shadow: 3px 3px 3px black;
 }

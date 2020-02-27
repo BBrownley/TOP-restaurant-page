@@ -1,3 +1,12 @@
+/*
+
+-Give selected tabs a background color indication
+-Rework dummy logo
+-Center content on screen
+-Give background image a transition on change
+
+*/
+
 import loadPage from "./pageLoad.js";
 
 import home from "./homeContent";
@@ -11,6 +20,25 @@ const mainController = (() => {
     const bodyElement = document.querySelector("body");
     const tabs = document.querySelectorAll(".navigation ul li");
     const pageInfoContainer = document.querySelector(".information");
+
+    let images = [];
+
+    const preloadImages = () => {
+
+        console.log(tabs)
+        
+        const tabNames = Array.from(tabs).map(tab => tab.getAttribute("data-tab"));
+        
+        images = tabNames.map(tabName => {
+            const img = new Image();
+            img.src = `../dist/img/${tabName}-img.jpg`
+            return img;
+        })
+
+        console.log(images)
+
+        
+    }
 
     // Changes the background image based on the `content` being displayed on the page
     const changeBackgroundImage = content => {
@@ -51,5 +79,6 @@ const mainController = (() => {
     }
 
     tabs.forEach(tab => tab.addEventListener("click", switchTab));
+    preloadImages();
 
 })();

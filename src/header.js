@@ -4,9 +4,9 @@ const header = `
     <div class="logo">Logo</div>
         <nav class="navigation">
             <ul>
-                <li id="nav-home" class="nav-selected">Home</li>
-                <li id="nav-menu">Menu</li>
-                <li id="nav-contact">Contact</li>
+                <li id="nav-home" class="nav-selected" data-tab="home">Home</li>
+                <li id="nav-menu" data-tab="menu">Menu</li>
+                <li id="nav-contact" data-tab="contact">Contact</li>
             </ul>
         </nav>
     </div>
